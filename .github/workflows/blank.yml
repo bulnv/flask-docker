@@ -34,7 +34,7 @@ jobs:
           token: ${{ github.token }}
           
       - name: Push Docker GCR
-        uses: raccoondev/push-docker-gcr
+        uses: raccoondev/push-docker-gcr@v1
         with:
           gcr_host: eu.gcr.io
           image_name: flask-demo
