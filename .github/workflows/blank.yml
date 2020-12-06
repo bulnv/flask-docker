@@ -36,7 +36,7 @@ jobs:
       - name: Push Docker GCR
         uses: raccoondev/push-docker-gcr@v1
         with:
-          gcr_host: eu.gcr.io
+          gcr_host: gcr.io
           image_name: flask-demo
           image_tag: latest
         env: 
