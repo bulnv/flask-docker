@@ -41,5 +41,5 @@ jobs:
           image_tag: latest
         env: 
           GCLOUD_SERVICE_KEY: ${{ secrets.GCP_GCR }}
-          GOOGLE_PROJECT_ID: ${{ secrets.GCP_PID }}
+          GOOGLE_PROJECT_ID: stone-tract-292808
   
