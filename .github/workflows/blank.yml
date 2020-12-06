@@ -32,3 +32,11 @@ jobs:
           python-version: 3.7
           # Used to pull python distributions from actions/python-versions. Since there's a default, this is typically not supplied by the user.
           token: ${{ github.token }}
+          
+      - name: gcloud Container Registry Docker Login
+        # You may pin to the exact commit or the version.
+        # uses: elgohr/gcloud-login-action@57bdc0c38b4fa77c90801d77b2057d8288c2d0b7
+        uses: elgohr/gcloud-login-action@0.2
+        with:
+          # Base64 encoded service account key exported as JSON
+          account_key: 
