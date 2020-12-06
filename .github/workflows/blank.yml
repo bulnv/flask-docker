@@ -39,4 +39,4 @@ jobs:
         uses: elgohr/gcloud-login-action@0.2
         with:
           # Base64 encoded service account key exported as JSON
-          account_key: 
+          account_key:  ${{ secrets.GCP_GCR }}
