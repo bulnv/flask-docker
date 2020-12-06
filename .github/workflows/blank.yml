@@ -34,13 +34,12 @@ jobs:
           token: ${{ github.token }}
           
       - name: Push Docker GCR
-        # You may pin to the exact commit or the version.
-        # uses: RaccoonDev/push-docker-gcr@cbff6c0d9f259694f4c6bd036866eb63e1630712
         uses: raccoondev/push-docker-gcr
         with:
           gcr_host: eu.gcr.io
           image_name: flask-demo
           image_tag: latest
-          env:
-            GCLOUD_SERVICE_KEY: ${{ secrets.GCP_GCR }}
-            GOOGLE_PROJECT_ID: ${{ secrets.GCP_PID }}
+        env: 
+          GCLOUD_SERVICE_KEY: ${{ secrets.GCP_GCR }}
+          GOOGLE_PROJECT_ID: ${{ secrets.GCP_PID }}
+  
