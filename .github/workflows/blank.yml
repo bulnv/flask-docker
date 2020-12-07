@@ -44,22 +44,10 @@ jobs:
           GOOGLE_PROJECT_ID: stone-tract-292808
           
       - name: Cloud Run with docker build and push to GCR
-        uses: passionkind/action-cloud-run@1.5
+        uses: RafikFarhad/push-to-gcr-github-action@v3
         with:
-          # Set to true to check if working_directory has changes since the previous commit
-          check_if_changed: false
-          # Directory where the Dockerfile is to be found
-          #working_directory: 
-          # Cloud run service name
-          #service_name: 
-          # GCP service key with storage and run permissions
-          gcp_service_key: ${{ secrets.GCP_GCR }}
-          # GCP project
-          project: stone-tract-292808
-          # GCP Registry (e.g. 'eu.gcr.io')
-          #registry: # optional, default is eu.gcr.io
-          # GCP region
-          #region: # optional, default is europe-west4
-          # File path to environment configuration
-          #env: # optional
+          image_name: flask-docker
+          gcloud_service_key: ${{ secrets.GCP_GCR }}
+          project_id: stone-tract-292808
+
   
