@@ -44,7 +44,7 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: ameydev/gke-kubectl-action@dbe114f1703050edcbdc4285cab3f859646834d2
         uses: ameydev/gke-kubectl-action@v1.02
-        with:
+        env:
           # GCP authorization credentials
           APPLICATION_CREDENTIALS: ${{ secrets.GCP_GKE }}
           # Project id
@@ -53,4 +53,5 @@ jobs:
           CLUSTER_NAME: nvbulashev-app-stg-cluster
           # Zone Name
           ZONE_NAME: europe-west1-b
+        with:
           args: info
