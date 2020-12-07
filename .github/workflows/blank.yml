@@ -47,7 +47,7 @@ jobs:
         uses: passionkind/action-cloud-run@1.5
         with:
           # Set to true to check if working_directory has changes since the previous commit
-          #check_if_changed: # optional, default is false
+          check_if_changed: false
           # Directory where the Dockerfile is to be found
           #working_directory: 
           # Cloud run service name
