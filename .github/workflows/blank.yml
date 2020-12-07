@@ -38,6 +38,19 @@ jobs:
         with:
           image_name: flask-docker
           gcloud_service_key: ${{ secrets.GCP_GCR }}
-          project_id: stone-tract-292808
-
-  
+          project_id: ${{ secrets.GCP_PID }}
+                
+      - name: kubectl - Google Cloud GKE cluster.
+        # You may pin to the exact commit or the version.
+        # uses: ameydev/gke-kubectl-action@dbe114f1703050edcbdc4285cab3f859646834d2
+        uses: ameydev/gke-kubectl-action@v1.02
+        with:
+          # GCP authorization credentials
+          APPLICATION_CREDENTIALS: ${{ secrets.GCP_GKE }}
+          # Project id
+          PROJECT_ID: ${{ secrets.GCP_PID }}
+          # GKE Cluser Name
+          CLUSTER_NAME: nvbulashev-app-stg-cluster
+          # Zone Name
+          ZONE_NAME: europe-west1-b
+          args: info
