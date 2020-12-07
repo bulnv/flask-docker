@@ -33,16 +33,6 @@ jobs:
           # Used to pull python distributions from actions/python-versions. Since there's a default, this is typically not supplied by the user.
           token: ${{ github.token }}
           
-      - name: Push Docker GCR
-        uses: raccoondev/push-docker-gcr@v1
-        with:
-          gcr_host: gcr.io
-          image_name: flask-demo
-          image_tag: latest
-        env: 
-          GCLOUD_SERVICE_KEY: ${{ secrets.GCP_GCR }}
-          GOOGLE_PROJECT_ID: stone-tract-292808
-          
       - name: Cloud Run with docker build and push to GCR
         uses: RafikFarhad/push-to-gcr-github-action@v3
         with:
