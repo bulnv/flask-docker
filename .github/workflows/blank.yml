@@ -40,18 +40,10 @@ jobs:
           gcloud_service_key: ${{ secrets.GCP_GCR }}
           project_id: ${{ secrets.GCP_PID }}
                 
-      - name: kubectl - Google Cloud GKE cluster.
-        # You may pin to the exact commit or the version.
-        # uses: ameydev/gke-kubectl-action@dbe114f1703050edcbdc4285cab3f859646834d2
-        uses: ameydev/gke-kubectl-action@v1.02
-        env:
-          # GCP authorization credentials
-          APPLICATION_CREDENTIALS: ${{ secrets.GCP_GKE }}
-          # Project id
-          PROJECT_ID: ${{ secrets.GCP_PID }}
-          # GKE Cluser Name
-          CLUSTER_NAME: nvbulashev-app-stg-cluster
-          # Zone Name
-          ZONE_NAME: europe-west1-b
+      - name: Get kubeconfig file from GKE
+        uses: machine-learning-apps/gke-kubeconfig@master
         with:
-          args: info
+          application_credentials: ${{ secrets.GCP_GKE }}
+          project_id: ${{ secrets.GCP_PID }}
+          location_zone: europe-west-1b
+          cluster_name: nvbulashev-app-stg-cluster
